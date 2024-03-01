@@ -20,7 +20,7 @@ Create a file named path.py and declare `OUTPUT_DIR = "desired output directory"
 
 If you have an account on TikTok, you can place a json file 'cookies.json' in the base directory. This will not let you download private posts, but it will help against some of TikTok's anti bot stuff.
 
-Run main.py and edit data/profiles.csv.
+Run main.py and edit the generated data/profiles.csv.
 
 ## data/profiles.csv
 Username: username of profile you want to download posts from
