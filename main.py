@@ -34,10 +34,11 @@ def main():
         for directory, username, id in zip(df['Directory'], df['Username'], df['Id']):
             pathgen = PathGenerator(directory)
             
-            driver.go_to_user(username)
-            for id in filter(lambda id: file_not_present(pathgen.output_dir, pathgen.filename(id)), driver.get_recent_post_ids()):
+            driver.exe(driver.go_to_user, username)
+            for id in filter(lambda id: file_not_present(pathgen.output_dir, pathgen.filename(id)), driver.exe(driver.get_recent_post_ids, 5)):
                 downloader.enqueue(id, directory)
             sleep(3)
+        sleep(0.5)
         
     
 if __name__ == '__main__':
