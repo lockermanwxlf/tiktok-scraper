@@ -44,8 +44,8 @@ class Driver:
         '''Relaunches the native driver if it runs into an OUT OF MEMORY webdriver error. A common enough occurence to warrant this.'''
         while True:
             try:
-                return func(args)
-            except Exception as e:
+                return func(*args)
+            except Exception:
                 traceback.print_exc()
                 self.make_new_driver()
                 
