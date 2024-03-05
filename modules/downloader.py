@@ -30,7 +30,7 @@ class Downloader:
         self.df = pd.read_csv('data/download_queue.csv')
         for post_id, directory in zip(self.df['Post Id'], self.df['Directory']):
             self.queue.put((post_id, directory))
-        self.thread = Thread(target=consumer, args=[self]).start()
+        Thread(target=consumer, args=[self]).start()
         
     def enqueue(self, post_id: str, directory: str):
         if (len(self.df.loc[self.df['Post Id'] == post_id])>0):
